@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <base target="_top">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+    html, body { margin: 0; padding: 0; width: 100%; background-color: #FDFBF7; -webkit-font-smoothing: antialiased; }
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+
+    @keyframes smoothReveal {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-reveal { animation: smoothReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    /* Premium Prism Shimmer Button */
+    .btn-prism {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-prism::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -150%; width: 50%; height: 100%;
+      background: linear-gradient(
+        90deg, transparent,
+        rgba(255, 255, 255, 0.1) 20%,
+        rgba(197, 155, 135, 0.4) 40%,
+        rgba(255, 255, 255, 0.2) 60%, transparent
+      );
+      transform: skewX(-25deg);
+    }
+    .btn-prism:hover {
+      background-color: #C59B87;
+      letter-spacing: 0.15em;
+    }
+    .btn-prism:hover::before { animation: prismSweep 0.8s ease-out; }
+    @keyframes prismSweep { 100% { left: 150%; } }
+  </style>
+</head>
+<body class="font-sans text-[#2C1A14]">
+
+  <!-- Top Floating Navigation Bar (Mobile Friendly layout) -->
+  <nav class="flex justify-between items-center px-4 md:px-12 py-4 bg-[#FDFBF7]/95 backdrop-blur-md sticky top-0 z-50 border-b border-[#2C1A14]/5">
+    <a href="#" class="font-serif text-base md:text-lg tracking-[0.15em] text-[#2C1A14] uppercase font-medium">
+      The Lash Bar.
+    </a>
+    <div class="hidden md:flex space-x-8 text-[11px] tracking-widest uppercase font-medium text-[#6E5A53]">
+      <a href="#philosophy" class="hover:text-[#2C1A14] transition-colors">Philosophy</a>
+      <a href="#services" class="hover:text-[#2C1A14] transition-colors">Services</a>
+      <a href="#booking" class="hover:text-[#2C1A14] transition-colors">Reserve</a>
+    </div>
+    <a href="#booking" class="btn-prism bg-[#2C1A14] text-white px-4 py-2 text-[10px] tracking-widest uppercase font-medium">
+      Book
+    </a>
+  </nav>
+
+  <!-- Hero Section with Responsive Image Adjustments -->
+  <header class="relative w-full min-h-[500px] md:min-h-[650px] flex items-center bg-neutral-900 overflow-hidden py-12">
+    <!-- Background image tailored to preserve contrast on small phone screens -->
+    <div class="absolute inset-0 z-0 bg-cover bg-center opacity-50 md:opacity-65" 
+         style="background-image: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&q=80&w=1200');"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#2C1A14]/90 via-[#2C1A14]/80 to-[#2C1A14]/90 md:bg-gradient-to-r z-10"></div>
+    
+    <!-- Content container with safe mobile padding -->
+    <div class="relative z-20 max-w-5xl mx-auto px-5 md:px-12 w-full text-white space-y-5 animate-reveal">
+      <span class="text-[10px] md:text-xs tracking-[0.25em] uppercase text-[#C59B87] font-medium block">The Masters of Fine Isolation</span>
+      <h1 class="font-serif text-3xl md:text-6xl leading-tight">
+        Your gaze,<br><span class="italic font-light text-[#C59B87]">redefined.</span>
+      </h1>
+      <p class="text-neutral-300 max-w-sm leading-relaxed text-xs md:text-sm font-light">
+        Custom eyelash artistry tailored precisely to your unique facial structure, lifestyle, and natural lash health.
+      </p>
+      <div class="pt-2">
+        <a href="#services" class="btn-prism inline-block bg-[#C59B87] text-white px-6 py-3.5 text-[11px] tracking-widest uppercase font-medium w-full sm:w-auto text-center">
+          Explore the Menu
+        </a>
+      </div>
+    </div>
+  </header>
+
+</body>
+</html>
